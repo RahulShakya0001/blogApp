@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+    <title>Add New Blog Page</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            width: 100%;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('partials/nav') %>
+
+    <div class="container">
+        <div class="form-container">
+            <h3 class="text-center mb-4">Create a New Blog</h3>
+            <form action="/blog" method="post" enctype="multipart/form-data">
+
+                <!-- Cover Image -->
+                <div class="mb-3">
+                    <label for="coverImage" class="form-label">Cover Image</label>
+                    <input type="file" class="form-control" id="coverImage" name="coverImage" required>
+                </div>
+
+                <!-- Blog Title -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter your title" required>
+                    <label for="title">Blog Title</label>
+                </div>
+
+                <!-- Blog Body -->
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="message" name="body" placeholder="Write your blog content here..."
+                        rows="4" required></textarea>
+                    <label for="message">Body</label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">Publish Blog</button>
+            </form>
+        </div>
+    </div>
+
+    <%- include('partials/scripts') %>
+</body>
+
+</html>
